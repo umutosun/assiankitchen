@@ -83,3 +83,64 @@ const createAllButton = () => {
   `;
   buttonContainer.innerHTML = allButtons;
 };
+createAllButton();
+const createFoods = (foods) => {
+  let menu = `
+    <div class="menu-items col-lg-6 col-sm-12">
+      <img class="photo" src="${foods.img}" alt="${foods.title}">
+      <div class="menu-info">
+        <div class="menu-title">
+          <h4>${foods.title}</h4>
+          <h4 class="price">${foods.price}</h4>
+        </div>
+        <div class="menu-text">${foods.desc}</div>
+      </div>
+    </div>  
+  `;
+  return menu;
+};
+const listAllFoods = () => {
+  let allFoods = "";
+  menu.map((item) => {
+    allFoods += createFoods(item);
+  });
+  menuList.innerHTML = allFoods;
+};
+document.addEventListener("DOMContentLoaded", listAllFoods);
+
+let koreaFood = () => {
+  let foodKorea = "";
+  menu.map((item) => {
+    if (item.category === "Korea") {
+      foodKorea += createFoods(item);
+    }
+  });
+  menuList.innerHTML = foodKorea;
+};
+
+let japanFood = () => {
+  let foodJapan = "";
+  menu.map((item) => {
+    if (item.category === "Japan") {
+      foodJapan += createFoods(item);
+    }
+  });
+  menuList.innerHTML = foodJapan;
+};
+let chinaFood = () => {
+  let foodChina = "";
+  menu.map((item) => {
+    if (item.category === "China") {
+      foodChina += createFoods(item);
+    }
+    menuList.innerHTML = foodChina;
+  });
+};
+const btnAllFoods = document.querySelector("#all");
+btnAllFoods.addEventListener("click", listAllFoods);
+const btnKorea = document.querySelector("#korea");
+btnKorea.addEventListener("click", koreaFood);
+const btnJapan = document.querySelector("#japan");
+btnJapan.addEventListener("click", japanFood);
+const btnChina = document.querySelector("#china");
+btnChina.addEventListener("click", chinaFood);
