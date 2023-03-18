@@ -72,3 +72,14 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
+let buttonContainer = document.querySelector(".btn-container");
+let menuList = document.querySelector(".section-center");
+const createAllButton = () => {
+  let allButtons = `
+  <button id = "all" class="btn btn-outline-dark btn-item" type="button"> All </button>
+  <button id = "korea" class="btn btn-outline-dark btn-item" type="button"> Korea </button>
+  <button id = "japan" class="btn btn-outline-dark btn-item" type="button"> Japan </button>
+  <button id = "china" class="btn btn-outline-dark btn-item" type="button"> China </button>
+  `;
+  buttonContainer.innerHTML = allButtons;
+};
